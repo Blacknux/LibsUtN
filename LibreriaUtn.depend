@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1462634294 source:/home/knux/Documents/github/LibreriaUtn/claretlib.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1462641842 source:/home/knux/Documents/github/LibreriaUtn/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"claretlib.h"
+	"claretarray.h"
+
+1462640559 /home/knux/Documents/github/LibreriaUtn/claretlib.h
+
+1462641569 source:/home/knux/Documents/github/LibreriaUtn/claretarray.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"claretlib.h"
+	"claretarray.h"
+
+1462654767 /home/knux/Documents/github/LibreriaUtn/claretarray.h
+
