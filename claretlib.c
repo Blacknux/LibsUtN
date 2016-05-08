@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+
+
 #define TAM 5
 void prueba(void)
 {
@@ -313,3 +315,5 @@ int getInt(int* input,char message[], char errorMessage[],int lowLimitRange,int 
     return retorno;
 
 }
+
+

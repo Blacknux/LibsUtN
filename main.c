@@ -11,102 +11,85 @@ int main()
 {
     //prueba();
     int i;
+    int option;//,free1;
     EArray listado[5];
-    initArray(listado,5,1);
-    char initnames[][20]= {"jorge","francisco","pedro","nahuel","martin"};
-    for(i=0; i<5; i++)
-    {
-        strcpy(listado[i].name,initnames[i]);
-    }
-    firstUpper(listado,5);
-    for(i=0; i<5; i++)
-    {
-        //printf("\n el status es: %d\n",listado[i].id);
-        printf( "El nombre del registro %d es: %s\n",i+1,listado[i].name);
-    }
+    char seguir='s';
+    char itemdel[233];
+    int checkdelete;
 
-    //listado[3].isEmpty=0;
-    i=findByString(listado,5,"Ingrese el ID","No se encontro",1);
-    if(i!=-1)
+    initArray(listado,5,1);
+
+
+
+
+    do
     {
-        printf("El Id solicitado se encuentra en el indice %d",i);
+        printf("\n1-ADD\n2-DEL\n3-SHOW\n4-EXIT\n");
+        getInt(&option,"","Solo entre 1 y 4",0,5);
+        firstUpper(listado,5);
+        switch(option)
+        {
+
+        case 1:
+            addItemInt(listado,5,"\n",1);
+            break;
+        case 2:
+            getString(&itemdel,"Ingrese el nombre a eliminar: ",1,20);
+            firstUpperString(&itemdel,20);
+           checkdelete= deletItemString(listado,5,itemdel);
+           if (checkdelete==-1)
+           printf("Error en borrado reintente");
+            break ;
+        case 3:
+            system("clear");
+            for(i=0; i<5; i++)
+            {
+                if(listado[i].isEmpty==0)
+                {
+                    printf("\n\nPersona Nro-%d\n",i+1);
+                    printf("Nombre: %s\nEdad: %d\nID: %d\n",listado[i].name, listado[i].old,listado[i].id);
+                }
+            }
+            printf("Presione una tecla pra continuar....");
+            getchar();
+            system("clear");
+            break;
+        case 4:
+            seguir='n';
+            break;
+        }
+
     }
+    while(seguir!='n');
+
+
+
+
+    //i=findByString(listado,5,"Ingrese el ID","No se encontro",1);
+//    if(i!=-1)
+//    {
+//        printf("El Id solicitado se encuentra en el indice %d",i);
+//    }
 
 
 
     return 0;
 }
-
-
-
-int findByString(EArray* struc,int cant, char* message,char* eMesaage,int printeMessage)
+int deletItemString(EArray* struc,int cant,char* strToDel)
 {
-    int i;
     int retorno=-1;
-    char stringToFind[4096];
+    int indexToDelete;
 
-    firstUpper(struc,cant);
-
-    if(struc!=NULL && cant>0)
+    if(struc!=NULL&& cant >0)
     {
-        getString(stringToFind,message,1,50);
-        stringToFind[0]=toupper(stringToFind[0]);
-        printf("%s\n",stringToFind);
-
-        for (i=0; i<cant; i++)
+        indexToDelete=checkByString(struc,cant,strToDel);
+        printf("el indice es %d \n",indexToDelete);
+        if(indexToDelete!=-1&&struc[indexToDelete].isEmpty==0)
         {
-
-            if(strcmp(struc[i].name,stringToFind)==0)
-            {
-                retorno=i;
-                break;
-            }
+            struc[indexToDelete].isEmpty=1;
+            retorno=0;
         }
     }
-
-    if (retorno==-1 && printeMessage==1)
-        printf("%s\n",eMesaage);
     return retorno;
-
 }
-
-/**
-*\brief Convierte en mayuscula la primera letra de cada nombre incluyendo nombre compuestos.
-*\param struc array a utilizar
-*\param Largo del array
-*\return Devuelve 0 si termino OK o -1 si no pudo realizar la tarea.
-*/
-
-int firstUpper(EArray* struc, int cant)
-{
-    int i;
-    int j;
-    int retorno = -1;
-
-
-    if(struc != NULL && cant > 0 )
-    {
-        for (i=0;i<cant;i++)
-        {
-            for(j=0;j<strlen(struc[i].name);j++)
-            {
-                if(0 == j || struc[i].name[j]==' ')
-                {
-                    struc[i].name[j]=toupper(struc[i].name[j]);
-
-                }
-                if(struc[i].name[j]==' ')
-                {
-                    struc[i].name[j+1]=toupper(struc[i].name[j+1]);
-
-                }
-
-
-            }
-        }
-        retorno=0;
-    }
-    return retorno;
-    }
-
 

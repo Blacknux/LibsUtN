@@ -8,4 +8,5 @@ int getInt(int* input,char message[], char errorMessage[],int lowLimitRange,int 
 void prueba(void);
 
 
+
 #endif // CLARETLIB_INCLUDED
