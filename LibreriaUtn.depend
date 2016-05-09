@@ -25,3 +25,29 @@
 	"claretlib.h"
 	"claretarray.h"
 
+1462762852 source:/root/Desktop/Programacion C/Github/LibsUtN/claretlib.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1462761494 source:/root/Desktop/Programacion C/Github/LibsUtN/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"claretlib.h"
+	"claretarray.h"
+
+1462761494 /root/Desktop/Programacion C/Github/LibsUtN/claretlib.h
+
+1462761494 /root/Desktop/Programacion C/Github/LibsUtN/claretarray.h
+
+1462762931 source:/root/Desktop/Programacion C/Github/LibsUtN/claretarray.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"claretlib.h"
+	"claretarray.h"
+

@@ -7,6 +7,22 @@
 
 
 
+/**
+*\brief
+*\param
+*\param
+*\param
+*\return
+*/
+
+
+/**
+*\brief incializa una array en el campo isEmpty en el valor que se le pase.
+*\param EArray* struc  puntero de una array de estructuras a inicializar que posea el campo isEmpty
+*\param int cant tamaño de la array
+*\param int value valor con el que se debe inicializar por lo gral es 1
+*\return int Si finaliza ok devuelve 0 si no devuelve -1
+*/
 
 int initArray(EArray* struc,int cant,int value)
 {
@@ -22,6 +38,15 @@ int initArray(EArray* struc,int cant,int value)
     }
     return retorno;
 }
+
+/**
+*\brief Recorre una Array de estructuras y busca un lugar con el campo isEmpty = value
+*\param EArray* struc puntero de la array donde se buscara un lugar vacio
+*\param int cant tamaño de la array
+*\param int value es el valor que se debe buscar en el campo isEmpty
+*\param int printFull opcion de imprimir alerta de lleno (1) no imprime (0)
+*\return si encuentra lugar devuelve el indice del lugar libre si no devuelve -1
+*/
 
 
 int findEmpty(EArray* struc,int cant, int value,int printFull)
@@ -46,7 +71,15 @@ int findEmpty(EArray* struc,int cant, int value,int printFull)
 }
 
 
-
+/**
+*\brief busca un registro por ID ingresado
+*\param EArray* struc puntero de la estructura a recorrer
+*\param int cant tamaño de la array
+*\param char* message mensaje cone l cuals e solicita el Id
+*\param char* eMesaage^Mensaje que se mostrara en caso de que printeMessage =1
+*\param int printeMessage indica si se debe mostrar o no el mensaje de error SI(1) NO(0)
+*\return si encuentra el id registrado devuelve el indice del mismo, si no devuelve -1
+*/
 
 int findById(EArray* struc,int cant, char* message,char* eMesaage,int printeMessage)
 {
@@ -70,7 +103,15 @@ int findById(EArray* struc,int cant, char* message,char* eMesaage,int printeMess
     return retorno;
 }
 
-
+/**
+*\brief busca un registro por una cadena ingresada compara con campo name
+*\param EArray* struc puntero de la estructura a recorrer
+*\param int cant tamaño de la array
+*\param char* message mensaje cone l cuals e solicita el nombre a buscar
+*\param char* eMesaage^Mensaje que se mostrara en caso de que printeMessage =1
+*\param int printeMessage indica si se debe mostrar o no el mensaje de error SI(1) NO(0)
+*\return si encuentra el nombre registrado devuelve el indice del mismo, si no devuelve -1
+*/
 int findByString(EArray* struc,int cant, char* message,char* eMesaage,int printeMessage)
 {
     int i;
@@ -119,9 +160,9 @@ int firstUpper(EArray* struc, int cant)
 
     if(struc != NULL && cant > 0 )
     {
-        for (i=0;i<cant;i++)
+        for (i=0; i<cant; i++)
         {
-            for(j=0;j<strlen(struc[i].name);j++)
+            for(j=0; j<strlen(struc[i].name); j++)
             {
                 if(0 == j || struc[i].name[j]==' ')
                 {
@@ -140,10 +181,17 @@ int firstUpper(EArray* struc, int cant)
         retorno=0;
     }
     return retorno;
-    }
+}
 
+/**
+*\brief busca un registro por cadena pasada por parametro
+*\param EArray* struc puntero de la estructura a recorrer
+*\param int cant tamaño de la array
+*\param char* strToCheck cadena a bsucar en al estructura
+*\return si encuentra el string registrado devuelve el indice del mismo, si no devuelve -1
+*/
 
-    int checkByString(EArray* struc,int cant,char* strToCheck )
+int checkByString(EArray* struc,int cant,char* strToCheck )
 {
     {
         int i;
@@ -165,6 +213,13 @@ int firstUpper(EArray* struc, int cant)
 
 }
 
+/**
+*\brief busca un registro por id pasado por parametro
+*\param EArray* struc puntero de la estructura a recorrer
+*\param int cant tamaño de la array
+*\param char* idToCheck ID a buscar en al estructura
+*\return si encuentra el ID registrado devuelve el indice del mismo, si no devuelve -1
+*/
 
 int checkById(EArray* struc, int cant,int idToCheck)
 {
@@ -268,12 +323,18 @@ int addItemInt(EArray* struc,int cant,char* message,int IsEmptyValue)
 }
 
 
+/**
+*\brief Convierte en mayuscula la primera letra de cada palabra de una cadena.
+*\param char* struc puntero de a cadena a convertir
+*\param Largo del array
+*\return Devuelve 0 si termino OK o -1 si no pudo realizar la tarea.
+*/
 
 
 int firstUpperString(char* struc, int cant)
 {
     int i;
-    int j;
+    //int j;
     int retorno = -1;
 
     if(struc != NULL && cant > 0 )

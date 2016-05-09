@@ -30,9 +30,12 @@ void prueba(void)
 }
 
 /**
-*
-*
-*
+*\brief Pide y valida un string
+*\param char* Input Puntero char donde se va a guardar la cadena
+*\param char* message Mensage con el cual se va a solicitar el ingreso de la cadena
+*\param int intMin minimo de letras para validar el largo del string
+*\param int intMax maximo de letras para validar el largo del string
+*\return si todo salio OK retorna 0 y si no -1
 */
 
 int getString(char *input,char* message,int intMin,int intMax )
@@ -70,9 +73,13 @@ int getString(char *input,char* message,int intMin,int intMax )
 
 
 /**
-*
-*
-*
+*\brief Solicita un string y valida que sean todas letras
+*\param char* input Puntero char donde se guardara la cadena
+*\param char* messageInput mensaje de solicitud de cadena
+*\param char* eMessage mensaje de error por si se ingresan datos que no son letras
+*\param int lengthMin minimo de letras que debe tener la cadena
+*\param int lengthMax Maximo de letras que debe tener la cadena
+*\return Retorna 0 si todo salio bien o -1 si no finalizo ok
 */
 
 int getLetters(char* input,char* messageInput,char* eMessage,int lengthMin,int lengthMax)
@@ -93,11 +100,11 @@ int getLetters(char* input,char* messageInput,char* eMessage,int lengthMin,int l
         for(i=0; i<strleng; i++)
         {
             if(getstFlag==-1)
-            break;
+                break;
             if(/*(strleng>lengthMin)&&*/(auxChar[i]>='a'&& auxChar[i]<='z')||(auxChar[i]>='A'&&auxChar[i]<='Z'))
             {
 
-                 strcpy(input,auxChar);
+                strcpy(input,auxChar);
                 retorno=0;
 
             }
@@ -114,9 +121,13 @@ int getLetters(char* input,char* messageInput,char* eMessage,int lengthMin,int l
 }
 
 /**
-*
-*
-*
+*\brief Solicita una cadena que sean solo numeros y lo valida
+*\param  char* input Puntero char donde se guardara la cadena
+*\param char* messageInput mensaje de solicitud de cadena
+*\param char* eMessage mensaje de error por si se ingresan datos que no son numeros
+*\param int lengthMin minimo de letras que debe tener la cadena
+*\param int lengthMax Maximo de letras que debe tener la cadena
+*\return Retorna 0 si todo salio bien o -1 si no finalizo ok
 */
 
 int getNumbers(char* input,char* messageInput,char* eMessage,int lengthMin,int lengthMax)
@@ -137,11 +148,11 @@ int getNumbers(char* input,char* messageInput,char* eMessage,int lengthMin,int l
         for(i=0; i<strleng; i++)
         {
             if(getstFlag==-1)
-            break;
+                break;
             if(/*(strleng>lengthMin)&&*/(auxChar[i]>='0'&& auxChar[i]<='9'))
             {
 
-                 strcpy(input,auxChar);
+                strcpy(input,auxChar);
                 retorno=0;
 
             }
@@ -158,9 +169,13 @@ int getNumbers(char* input,char* messageInput,char* eMessage,int lengthMin,int l
 }
 
 /**
-*
-*
-*
+*\brief Solicita una cadena de texto con formato de mail y lo valida
+*\param  char* input Puntero char donde se guardara la cadena
+*\param char* messageInput mensaje de solicitud de cadena
+*\param char* eMessage mensaje de error por si no se ongresa un dato valido
+*\param int lengthMin minimo de letras que debe tener la cadena
+*\param int lengthMax Maximo de letras que debe tener la cadena
+*\return Retorna 0 si todo salio bien o -1 si no finalizo ok
 */
 int getMail(char* input,char* messageInput,char* eMessage,int lengthMin,int lengthMax)
 {
@@ -216,9 +231,13 @@ int getMail(char* input,char* messageInput,char* eMessage,int lengthMin,int leng
 }
 
 /**
-*
-*
-*
+*\brief Solicita una cadena de texto con formato de telefono y lo valida
+*\param char* input Puntero char donde se guardara la cadena
+*\param char* messageInput mensaje de solicitud de cadena
+*\param char* eMessage mensaje de error por si no se ongresa un dato valido
+*\param int lengthMin minimo de letras que debe tener la cadena
+*\param int lengthMax Maximo de letras que debe tener la cadena
+*\return Retorna 0 si todo salio bien o -1 si no finalizo ok
 */
 
 int getPhone(char* input,char* messageInput,char* eMessage,int lengthMin,int lengthMax)
@@ -269,7 +288,16 @@ int getPhone(char* input,char* messageInput,char* eMessage,int lengthMin,int len
     }
     return retorno;
 }
-
+/**
+*\brief Solicita un entero en un rango y valida que se haya ingresado un dato valido
+*\param int* input Puntero int donde se guardara el dato si es valido
+*\param char message[] Mensaje para solicitar el numero
+*\param char errorMessage[] Mensaje de error
+*\param int lowLimitRange numero minimo del rango a ingresar
+*\param int hiLimitRange numero maximo del rango a ingresar
+* \return Retorna 0 si todo salio bien o -1 si no finalizo ok
+*
+*/
 
 int getInt(int* input,char message[], char errorMessage[],int lowLimitRange,int hiLimitRange)
 {
